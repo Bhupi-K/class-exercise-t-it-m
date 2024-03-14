@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    environment{
+        FIREBASE_DEPLOY_TOKEN = credentials('firebase-token')
+    }
+stages{
+    stage('Testing Env'){
+        steps{
+            //Deploy to Testing project firebase.
+            // class-exercise-t-it-m-1fb99
+            sh 'firebase deploy -P class-exercise-t-it-m-1fb99 --token "$FIREBASE_DEPLOY_TOKEN"'
+
+        }
+    }
+    stage('Staging Env'){
+        steps{
+            //Deploy to Staging project firebase.
+            echo 'Staging Stage'
+        }
+    }
+    stage('Production Env'){
+        steps{
+            //Deploy to Production project firebase.
+            echo 'Productiion Stage'
+        }
+    }
+}
+}
