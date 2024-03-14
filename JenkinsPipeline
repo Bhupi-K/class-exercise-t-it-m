@@ -24,7 +24,7 @@ stages{
         stage('Production Env'){
             steps{
                 //Deploy to Production project firebase.
-                echo 'Productiion Stage'
+                //echo 'Productiion Stage'
                 sh 'firebase deploy -P class-exercise-t-it-m-pr-bd8a4 --token "$FIREBASE_DEPLOY_TOKEN"'
                 }
         }
