@@ -4,11 +4,26 @@ pipeline {
         FIREBASE_DEPLOY_TOKEN = credentials('firebase-token')
     }
 stages{
+    stage('Build') {
+            steps {
+                // Install Firebase CLI
+                // sh 'dnf install curl -y'
+                // sh 'curl -sL https://rpm.nodesource.com/setup_17.x | bash -'
+                // sh 'dnf install nodejs'
+                // sh 'npm install -g firebase-tools'
+
+                // Checkout the code from your version control system (e.g., Git)
+                git 'https://github.com/your/repository.git'
+
+                // Build your project (e.g., compile code, package artifacts)
+                sh 'npm run build'
+            }
+        }
         stage('Testing Env'){
             steps{
                 //Deploy to Testing project firebase.
                 // class-exercise-t-it-m-1fb99
-                sh 'firebase deploy -P class-exercise-t-it-m-1fb99 --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh '/usr/local/bin/firebase  deploy -P class-exercise-t-it-m-1fb99 --token "$FIREBASE_DEPLOY_TOKEN"'
 
                 }
             }
@@ -17,7 +32,7 @@ stages{
             steps{
                 //Deploy to Staging project firebase.
                 // echo 'Staging Stage'
-                sh 'firebase deploy -P class-exercise-t-it-m-st-e7bcc --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh '/usr/local/bin/firebase  deploy -P class-exercise-t-it-m-st-e7bcc --token "$FIREBASE_DEPLOY_TOKEN"'
                 }
             }
 
@@ -25,7 +40,7 @@ stages{
             steps{
                 //Deploy to Production project firebase.
                 //echo 'Productiion Stage'
-                sh 'firebase deploy -P class-exercise-t-it-m-pr-bd8a4 --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh '/usr/local/bin/firebase  deploy -P class-exercise-t-it-m-pr-bd8a4 --token "$FIREBASE_DEPLOY_TOKEN"'
                 }
         }
 }
