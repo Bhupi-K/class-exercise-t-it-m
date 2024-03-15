@@ -4,21 +4,21 @@ pipeline {
         FIREBASE_DEPLOY_TOKEN = credentials('firebase-token')
     }
 stages{
-    stage('Build') {
-            steps {
-                // Install Firebase CLI
-                // sh 'dnf install curl -y'
-                // sh 'curl -sL https://rpm.nodesource.com/setup_17.x | bash -'
-                // sh 'dnf install nodejs'
-                // sh 'npm install -g firebase-tools'
+    // stage('Build') {
+    //         steps {
+    //             // Install Firebase CLI
+    //             // sh 'dnf install curl -y'
+    //             // sh 'curl -sL https://rpm.nodesource.com/setup_17.x | bash -'
+    //             // sh 'dnf install nodejs'
+    //             // sh 'npm install -g firebase-tools'
 
-                // Checkout the code from your version control system (e.g., Git)
-                git 'https://github.com/your/repository.git'
+    //             // Checkout the code from your version control system (e.g., Git)
+    //             git 'https://github.com/your/repository.git'
 
-                // Build your project (e.g., compile code, package artifacts)
-                sh 'npm run build'
-            }
-        }
+    //             // Build your project (e.g., compile code, package artifacts)
+    //             sh 'npm run build'
+    //         }
+    //     }
         stage('Testing Env'){
             steps{
                 //Deploy to Testing project firebase.
