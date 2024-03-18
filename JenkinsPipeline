@@ -23,7 +23,7 @@ stages{
             steps{
                 //Deploy to Testing project firebase.
                 // class-exercise-t-it-m-1fb99
-                sh '/usr/local/bin/firebase  deploy -P class-exercise-t-it-m-1fb99 --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh 'firebase  deploy -P class-exercise-t-it-m-1fb99 --token "$FIREBASE_DEPLOY_TOKEN"'
 
                 }
             }
@@ -32,7 +32,7 @@ stages{
             steps{
                 //Deploy to Staging project firebase.
                 // echo 'Staging Stage'
-                sh '/usr/local/bin/firebase  deploy -P class-exercise-t-it-m-st-e7bcc --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh 'firebase  deploy -P class-exercise-t-it-m-st-e7bcc --token "$FIREBASE_DEPLOY_TOKEN"'
                 }
             }
 
@@ -40,7 +40,7 @@ stages{
             steps{
                 //Deploy to Production project firebase.
                 //echo 'Productiion Stage'
-                sh '/usr/local/bin/firebase  deploy -P class-exercise-t-it-m-pr-bd8a4 --token "$FIREBASE_DEPLOY_TOKEN"'
+                sh 'firebase  deploy -P class-exercise-t-it-m-pr-bd8a4 --token "$FIREBASE_DEPLOY_TOKEN"'
                 }
         }
 }
